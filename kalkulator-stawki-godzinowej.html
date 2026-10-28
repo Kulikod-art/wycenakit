@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#345cf5">
+<title>Kalkulator stawki godzinowej 2026 — ile brać za usługę? | WycenaKit</title>
+<meta name="description" content="Darmowy kalkulator stawki godzinowej dla usługodawców i freelancerów. Policz koszty, potrzebną stawkę netto, marżę i VAT. Bez rejestracji.">
+<link rel="canonical" href="https://wycenakit.onrender.com/kalkulator-stawki-godzinowej.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Kalkulator stawki godzinowej — WycenaKit"><meta property="og:description" content="Policz minimalną opłacalną stawkę za godzinę na podstawie kosztów i godzin rozliczanych klientom."><meta property="og:url" content="https://wycenakit.onrender.com/kalkulator-stawki-godzinowej.html">
+<link rel="stylesheet" href="./styles.css">
+<style>
+.rate-hero{background:linear-gradient(125deg,#f9fbff,#e9efff);padding:55px 0 46px}
+.rate-hero h1{font-size:clamp(32px,5vw,50px);letter-spacing:-1.6px;line-height:1.16;margin:14px 0}
+.rate-hero p{max-width:720px;font-size:15px;color:#5b6c85;line-height:1.8}
+.rate-main{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:22px;padding-top:36px;padding-bottom:38px;align-items:start}
+.rate-panel{border:1px solid #dfe7f4;border-radius:17px;padding:27px;background:#fff;box-shadow:0 12px 35px #1b2f5510}
+.rate-panel h2{font-size:23px;letter-spacing:-.5px;margin:0 0 10px}
+.rate-panel .intro{font-size:12px;color:#667790;line-height:1.7;margin-bottom:25px}
+.rate-fields{display:grid;grid-template-columns:1fr 1fr;gap:19px}
+.rate-field{display:flex;flex-direction:column;gap:7px}
+.rate-field label{font-size:12px;font-weight:800;color:#24334c}
+.rate-field input,.rate-field select{border:1px solid #d6dfed;border-radius:9px;padding:12px 13px;font-size:15px;color:#203450;background:#fff;width:100%;min-height:46px}
+.rate-field input:focus,.rate-field select:focus{outline:2px solid #345cf544;border-color:#345cf5}
+.rate-field small{font-size:10px;color:#73829a;line-height:1.5}
+.rate-result{background:#172846;border-radius:17px;padding:29px;color:#fff}
+.rate-result .eyeline{font-size:10px;letter-spacing:1.2px;font-weight:850;color:#bbcced}
+.rate-result .value{font-size:clamp(32px,4.2vw,47px);font-weight:850;letter-spacing:-1.7px;line-height:1.15;margin:12px 0 8px}
+.rate-result .unit{color:#d4def1;font-size:12px}
+.rate-result hr{border:0;border-top:1px solid #ffffff33;margin:23px 0}
+.rate-result .line{display:flex;justify-content:space-between;gap:12px;margin:14px 0;font-size:12px;color:#c9d5e9}
+.rate-result .line strong{color:white;text-align:right}
+.rate-result .notice{font-size:11px;line-height:1.7;color:#cad7eb;margin-top:23px}
+.rate-result .btn{width:100%;text-align:center;margin-top:16px}
+.rate-error{color:#9e1f33;font-size:12px;min-height:20px;margin-top:14px}
+.rate-info{padding-top:12px;padding-bottom:80px;max-width:950px}
+.rate-info h2{font-size:25px;letter-spacing:-.5px;margin:28px 0 12px}
+.rate-info p,.rate-info li{font-size:14px;line-height:1.85;color:#52627c}
+.rate-info ul{padding-left:21px}
+.rate-formula{border-left:4px solid #345cf5;background:#f1f5ff;border-radius:9px;padding:19px;font-size:13px;line-height:1.9}
+.rate-cta{display:flex;align-items:center;justify-content:space-between;gap:20px;background:#f2f5ff;border:1px solid #e2e9f6;border-radius:13px;padding:23px;margin-top:30px}
+.rate-cta p{margin:6px 0 0}
+@media(max-width:800px){.rate-main{grid-template-columns:1fr}.rate-fields{grid-template-columns:1fr}.rate-panel{padding:19px}.rate-result{padding:24px}.rate-cta{flex-direction:column;align-items:stretch}}
+</style>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"bf713ea6ca5446948bf29f0ebac4149b"}'></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Kalkulator stawki godzinowej WycenaKit","description":"Bezpłatny kalkulator opłacalnej stawki godzinowej dla usługodawców.","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"pl","offers":{"@type":"Offer","price":"0","priceCurrency":"PLN"}}</script>
+</head><body>
+<header class="nav wrap"><a class="brand" href="./index.html" aria-label="WycenaKit — strona główna"><span class="brand-mark">W</span><span>wycena<b>kit</b><small>OFERTY BEZ KOMPLIKACJI</small></span></a><nav aria-label="Nawigacja"><a href="./index.html#generator">Generator ofert</a><a href="./jak-wycenic-usluge.html">Poradnik</a><a href="./probka.html">Pakiet PRO</a></nav><a class="nav-cta" href="./index.html#generator">Stwórz ofertę ↗</a></header>
+<main>
+<section class="rate-hero"><div class="wrap"><span class="eyebrow">DARMOWY KALKULATOR DLA USŁUGODAWCÓW</span><h1>Ile powinna kosztować <em style="font-style:normal;color:#345cf5">godzina Twojej pracy?</em></h1><p>Wpisz miesięczne koszty, oczekiwane wynagrodzenie i liczbę godzin faktycznie rozliczanych klientom. Kalkulator pokaże potrzebną stawkę oraz wpływ marży i VAT.</p></div></section>
+<section class="wrap rate-main" aria-label="Kalkulator stawki godzinowej">
+<div class="rate-panel"><h2>Twoje założenia</h2><p class="intro">Wartości są przykładowe — zmień je pod swoją działalność. Obliczenia wykonują się w przeglądarce; dane nie są wysyłane do WycenaKit.</p>
+<form id="rate-form" class="rate-fields" novalidate>
+<div class="rate-field"><label for="overhead">Koszty działalności / miesiąc (zł)</label><input id="overhead" type="number" min="0" max="10000000" step="0.01" value="1500" inputmode="decimal"><small>Narzędzia, oprogramowanie, księgowość, dojazdy, stałe koszty.</small></div>
+<div class="rate-field"><label for="income">Docelowe wynagrodzenie / miesiąc (zł)</label><input id="income" type="number" min="0" max="10000000" step="0.01" value="6000" inputmode="decimal"><small>Kwota, którą chcesz uzyskać przed indywidualnym rozliczeniem podatków i składek.</small></div>
+<div class="rate-field"><label for="hours">Godziny sprzedawalne / miesiąc</label><input id="hours" type="number" min="1" max="744" step="1" value="100" inputmode="numeric"><small>Nie cały czas pracy — tylko godziny możliwe do rozliczenia klientom.</small></div>
+<div class="rate-field"><label for="reserve">Rezerwa kosztowa (%)</label><input id="reserve" type="number" min="0" max="100" step="0.5" value="10" inputmode="decimal"><small>Dodatkowa poduszka na nieprzewidziane wydatki.</small></div>
+<div class="rate-field"><label for="margin">Dodatkowa marża operacyjna (%)</label><input id="margin" type="number" min="0" max="90" step="0.5" value="20" inputmode="decimal"><small>Marża ponad koszty, wynagrodzenie i rezerwę. Nie myl z narzutem.</small></div>
+<div class="rate-field"><label for="vat">VAT doliczany do ceny</label><select id="vat"><option value="0">Nie doliczam / 0%</option><option value="5">5%</option><option value="8">8%</option><option value="23" selected>23%</option></select><small>Wybierz właściwą stawkę dla swojej sytuacji. Kalkulator nie rozstrzyga obowiązków podatkowych.</small></div>
+</form><div class="rate-error" id="rate-error" role="alert" aria-live="polite"></div>
+</div>
+<aside class="rate-result" aria-live="polite"><div class="eyeline">SUGEROWANA STAWKA NETTO / H</div><div class="value" id="hourly">—</div><div class="unit">Za jedną godzinę rozliczaną klientowi, przed VAT</div><hr>
+<div class="line"><span>Koszt i wynagrodzenie / miesiąc</span><strong id="monthly">—</strong></div>
+<div class="line"><span>Po dodaniu rezerwy / miesiąc</span><strong id="with-reserve">—</strong></div>
+<div class="line"><span>Stawka pokrywająca te kwoty / h</span><strong id="minimum">—</strong></div>
+<div class="line"><span>Kwota VAT / h</span><strong id="vat-value">—</strong></div>
+<div class="line"><span>Stawka z VAT / h</span><strong id="gross">—</strong></div>
+<p class="notice">Wynik jest modelem planowania ceny, a nie stawką rynkową ani kwotą „na rękę”. Nie uwzględnia automatycznie podatku dochodowego, składek, sezonowości ani kosztów specyficznych dla zlecenia.</p>
+<a class="btn primary" href="./index.html#generator">Przygotuj ofertę dla klienta ↗</a>
+<button id="copy-result" class="btn" style="width:100%;margin-top:9px;background:#ffffff1a;color:#fff;border:1px solid #ffffff55" type="button">Kopiuj wynik</button>
+<div id="copy-status" role="status" aria-live="polite" style="font-size:11px;margin-top:10px;color:#c8d5eb"></div>
+</aside>
+</section>
+<section class="wrap rate-info">
+<h2>Jak obliczamy stawkę godzinową?</h2><div class="rate-formula"><strong>1.</strong> Koszty miesięczne + planowane wynagrodzenie = baza.<br><strong>2.</strong> Baza × (1 + rezerwa / 100) = potrzebna kwota miesięczna.<br><strong>3.</strong> Potrzebna kwota / godziny sprzedawalne = stawka pokrywająca założenia.<br><strong>4.</strong> Stawka / (1 − marża / 100) = sugerowana cena netto za godzinę.<br><strong>5.</strong> Cena netto × (1 + VAT / 100) = cena z VAT.</div>
+<h2>Dlaczego 160 godzin pracy nie oznacza 160 godzin płatnych?</h2><p>Czas poświęcony na rozmowy z klientami, wystawianie dokumentów, dojazdy, marketing i poprawki często nie jest osobno rozliczany. Wpisanie zbyt dużej liczby godzin obniży obliczoną stawkę i może prowadzić do niedoszacowania usług.</p>
+<h2>Marża czy narzut?</h2><p>Przy koszcie 80 zł i cenie netto 100 zł marża wynosi 20% (20/100), a narzut 25% (20/80). Dlatego kalkulator wylicza marżę poprzez dzielenie przez <strong>(1 − marża)</strong>, a nie dodawanie procentu do kosztu.</p>
+<h2>Jak wykorzystać wynik?</h2><ul><li>Porównaj go z cenami osiągalnymi dla Twoich usług, ale nie traktuj konkurencji jako jedynego punktu odniesienia.</li><li>Przy wycenie konkretnego zlecenia dolicz materiały, podwykonawców i koszty specyficzne, jeśli nie są już uwzględnione w kosztach miesięcznych.</li><li>W darmowym generatorze WycenaKit utwórz pozycje kosztorysu, określ zakres i zapisz ofertę do PDF.</li></ul>
+<div class="rate-cta"><div><strong>Potrzebujesz gotowych opisów usług i wzorów ofert?</strong><p>Sprawdź przykłady z pakietu WycenaKit PRO — to osobne pliki do edycji, a nie abonament.</p></div><a class="btn pro-outline" href="./probka.html">Zobacz próbki PRO ↗</a></div>
+<p style="font-size:11px;margin-top:22px">Kalkulator ma charakter edukacyjny i nie zastępuje doradztwa podatkowego, prawnego ani księgowego. Kwoty początkowe są wyłącznie demonstracyjne.</p>
+</section>
+</main>
+<footer class="footer"><div class="wrap footer-inner"><div><strong>wycena<span>kit</span></strong><p>Proste narzędzia dla małych firm.</p></div><div><a href="./index.html">Generator</a><a href="./jak-wycenic-usluge.html">Poradnik</a><a href="./prywatnosc.html">Prywatność</a><a href="./informacje.html">Informacje prawne</a></div><small>© 2026 WycenaKit</small></div></footer>
+<script>
+(function(){
+const ids=['overhead','income','hours','reserve','margin','vat'];
+const nodes=Object.fromEntries(ids.map(id=>[id,document.getElementById(id)]));
+const output=Object.fromEntries(['hourly','monthly','with-reserve','minimum','vat-value','gross','rate-error','copy-status'].map(id=>[id,document.getElementById(id)]));
+const money=new Intl.NumberFormat('pl-PL',{style:'currency',currency:'PLN',minimumFractionDigits:2,maximumFractionDigits:2});
+let summary='';
+function calculate(){
+const v=Object.fromEntries(ids.map(id=>[id,Number(nodes[id].value)]));
+let error='';
+if(ids.some(id=>nodes[id].value.trim()===''||!Number.isFinite(v[id])))error='Uzupełnij wszystkie pola poprawnymi liczbami.';
+else if(v.overhead<0||v.income<0||v.hours<=0||v.hours>744||v.reserve<0||v.reserve>100||v.margin<0||v.margin>90)error='Sprawdź dane: koszty nie mogą być ujemne, godziny 1–744, rezerwa 0–100%, marża 0–90%.';
+else if(v.overhead>1e7||v.income>1e7)error='Wartości kosztów i wynagrodzenia mogą wynosić maksymalnie 10 mln zł.';
+output['rate-error'].textContent=error;
+if(error){for(const id of ['hourly','monthly','with-reserve','minimum','vat-value','gross'])output[id].textContent='—';summary='';return}
+const monthly=v.overhead+v.income,withReserve=monthly*(1+v.reserve/100),minimum=withReserve/v.hours,net=minimum/(1-v.margin/100),tax=net*v.vat/100,gross=net+tax;
+const values={hourly:net,monthly, 'with-reserve':withReserve,minimum,'vat-value':tax,gross};
+for(const [id,val] of Object.entries(values))output[id].textContent=money.format(val);
+summary='WycenaKit — stawka godzinowa\nKoszty i wynagrodzenie: '+money.format(monthly)+' / mies.\nRezerwa: '+v.reserve+'%\nGodziny sprzedawalne: '+v.hours+' / mies.\nMarża operacyjna: '+v.margin+'%\nStawka netto: '+money.format(net)+' / h\nVAT: '+v.vat+'%\nStawka z VAT: '+money.format(gross)+' / h\nWynik orientacyjny.';
+}
+document.getElementById('rate-form').addEventListener('input',calculate);
+document.getElementById('rate-form').addEventListener('change',calculate);
+document.getElementById('copy-result').addEventListener('click',async()=>{
+ if(!summary)return;
+ try{await navigator.clipboard.writeText(summary);output['copy-status'].textContent='Wynik skopiowany.'}
+ catch(e){output['copy-status'].textContent='Nie udało się skopiować automatycznie. Zaznacz wartości ręcznie.'}
+});
+calculate();
+})();
+</script>
+</body></html>
