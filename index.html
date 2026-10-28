@@ -17,12 +17,12 @@
   <script src="./app.js" defer></script>
 
 <!-- Cloudflare Web Analytics: statystyki odwiedzin bez plików cookie -->
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"bf713ea6ca5446948bf29f0ebac4149b"}'></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"bf713ea6ca5446948bf29f0ebac4149b"}'></script>
 </head>
 <body>
   <header class="nav wrap">
     <a class="brand" href="#start" aria-label="WycenaKit — strona główna"><span class="brand-mark">W</span><span>wycena<b>kit</b><small>OFERTY BEZ KOMPLIKACJI</small></span></a>
-    <nav aria-label="Nawigacja"><a href="#generator">Generator</a><a href="#korzysci">Funkcje</a><a href="#faq">FAQ</a><a href="./jak-wycenic-usluge.html">Poradnik</a><a href="#zawartosc">Pakiet PRO</a></nav>
+    <nav aria-label="Nawigacja"><a href="#generator">Generator</a><a href="#korzysci">Funkcje</a><a href="#faq">FAQ</a><a href="./kalkulator-stawki-godzinowej.html">Kalkulator</a><a href="./jak-wycenic-usluge.html">Poradnik</a><a href="#zawartosc">Pakiet PRO</a></nav>
     <a class="nav-cta" data-pro-cta="header" href="https://payhip.com/b/Ko0Ad?utm_source=wycenakit&amp;utm_medium=website&amp;utm_campaign=pro_launch&amp;utm_content=header" target="_blank" rel="noopener noreferrer" style="background:#172846;color:#fff;border-color:#172846">Kup PRO · 29 zł ↗</a>
   </header>
   <main id="start">
@@ -74,6 +74,7 @@
       </div>
     </div></section>
     <section id="korzysci" class="benefits wrap"><span class="overline">DLACZEGO WYCENAKIT</span><h2>Więcej czasu na pracę.<br>Mniej na papierologię.</h2><div class="features"><div><span class="feature-icon">◈</span><h3>Przejrzyste dokumenty</h3><p>Profesjonalny układ oferty, gotowy do wysłania klientowi w formacie PDF.</p></div><div><span class="feature-icon">∑</span><h3>Obliczenia bez pomyłek</h3><p>Automatyczne sumy, rabaty i wybrana stawka VAT. Kontrola nad każdą pozycją.</p></div><div><span class="feature-icon">▣</span><h3>Prywatność danych</h3><p>Projekty zapisują się lokalnie. Możesz pobrać plik i wrócić do niego później.</p></div></div></section>
+    <section class="guide-promo wrap" aria-labelledby="rate-heading"><div><span class="overline">NOWE DARMOWE NARZĘDZIE</span><h2 id="rate-heading">Kalkulator stawki godzinowej</h2><p>Sprawdź, ile powinna kosztować godzina Twojej pracy na podstawie kosztów, marży i czasu rozliczanego klientom.</p></div><a class="btn pro-outline" href="./kalkulator-stawki-godzinowej.html">Policz swoją stawkę ↗</a></section>
     <section class="guide-promo wrap" aria-labelledby="guide-heading"><div><span class="overline">DARMOWA WIEDZA</span><h2 id="guide-heading">Jak wycenić usługę i nie stracić na zleceniu?</h2><p>Przejdź przez koszty, stawkę godzinową, marżę, rabaty i przygotowanie oferty na praktycznych przykładach.</p></div><a class="btn pro-outline" href="./jak-wycenic-usluge.html">Przeczytaj poradnik ↗</a></section>
     <section id="pro" class="pro wrap" aria-labelledby="pro-heading">
       <div><span class="overline">JEDNORAZOWY ZAKUP · BEZ ABONAMENTU</span><h2 id="pro-heading">WycenaKit PRO — gotowe materiały do ofert</h2>
@@ -96,7 +97,7 @@
     </section>
     <section class="faq wrap" id="faq"><span class="overline">PYTANIA I ODPOWIEDZI</span><h2>Warto wiedzieć</h2><details><summary>Czy generator jest bezpłatny?</summary><p>Tak. Możesz tworzyć oferty, liczyć wartości, zapisywać projekty i drukować dokumenty do PDF bez opłat.</p></details><details><summary>Gdzie przechowywane są moje dane?</summary><p>Wyceny zapisują się w pamięci lokalnej przeglądarki. Nie przesyłamy danych formularza na serwer. Możesz wyeksportować projekt do pliku JSON.</p></details><details><summary>Czy wycena jest fakturą?</summary><p>Nie. To oferta lub wycena, a nie faktura. Przed wysłaniem sprawdź poprawność danych, warunków i stawek podatkowych.</p></details><details><summary>Co zawiera pakiet PRO i czy odblokowuje dodatkowe funkcje?</summary><p>PRO to osobny pakiet plików: 100 opisów usług, 30 wiadomości, 15 ofert, kalkulatory, checklisty i poradnik. Nie odblokowuje funkcji w generatorze, który pozostaje darmowy. <a href="./probka.html" style="color:#345cf5;text-decoration:underline">Zobacz przykłady</a>.</p></details><details><summary>Jak pobrać PDF?</summary><p>Użyj przycisku „Pobierz PDF”, a następnie wybierz zapis do PDF w oknie drukowania.</p></details></section>
   </main>
-  <footer class="footer"><div class="wrap footer-inner"><div><strong>wycena<span>kit</span></strong><p>Proste narzędzia dla małych firm.</p></div><div><a href="./jak-wycenic-usluge.html">Poradnik</a><a href="./prywatnosc.html">Prywatność</a><a href="./informacje.html">Informacje prawne</a></div><small>© <span id="year"></span> WycenaKit</small></div></footer>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>wycena<span>kit</span></strong><p>Proste narzędzia dla małych firm.</p></div><div><a href="./kalkulator-stawki-godzinowej.html">Kalkulator</a><a href="./jak-wycenic-usluge.html">Poradnik</a><a href="./prywatnosc.html">Prywatność</a><a href="./informacje.html">Informacje prawne</a></div><small>© <span id="year"></span> WycenaKit</small></div></footer>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
