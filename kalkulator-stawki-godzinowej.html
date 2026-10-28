@@ -31,6 +31,9 @@
 .rate-result .notice{font-size:11px;line-height:1.7;color:#cad7eb;margin-top:23px}
 .rate-result .btn{width:100%;text-align:center;margin-top:16px}
 .rate-error{color:#9e1f33;font-size:12px;min-height:20px;margin-top:14px}
+.rate-calendar{display:flex;flex-direction:column;gap:5px;padding:16px 18px;border:1px solid #dbe5ff;border-radius:11px;background:#f2f6ff}
+.rate-calendar strong{font-size:15px;color:#172846}
+.rate-calendar span{font-size:12px;color:#526784;line-height:1.7}
 .rate-info{padding-top:12px;padding-bottom:80px;max-width:950px}
 .rate-info h2{font-size:25px;letter-spacing:-.5px;margin:28px 0 12px}
 .rate-info p,.rate-info li{font-size:14px;line-height:1.85;color:#52627c}
@@ -48,33 +51,40 @@
 </head><body>
 <header class="nav wrap"><a class="brand" href="./index.html" aria-label="WycenaKit — strona główna"><span class="brand-mark">W</span><span>wycena<b>kit</b><small>OFERTY BEZ KOMPLIKACJI</small></span></a><nav aria-label="Nawigacja"><a href="./index.html#generator">Generator ofert</a><a href="./jak-wycenic-usluge.html">Poradnik</a><a href="./probka.html">Pakiet PRO</a></nav><a class="nav-cta" href="./index.html#generator">Stwórz ofertę ↗</a></header>
 <main>
-<section class="rate-hero"><div class="wrap"><span class="eyebrow">DARMOWY KALKULATOR DLA USŁUGODAWCÓW</span><h1>Ile powinna kosztować <em style="font-style:normal;color:#345cf5">godzina Twojej pracy?</em></h1><p>Wpisz miesięczne koszty, oczekiwane wynagrodzenie i liczbę godzin faktycznie rozliczanych klientom. Kalkulator pokaże potrzebną stawkę oraz wpływ marży i VAT.</p></div></section>
+<section class="rate-hero"><div class="wrap"><span class="eyebrow">DARMOWY KALKULATOR DLA USŁUGODAWCÓW</span><h1>Ile powinna kosztować <em style="font-style:normal;color:#345cf5">godzina Twojej pracy?</em></h1><p>Wybierz miesiąc, a kalkulator sam policzy dni robocze w Polsce z uwzględnieniem weekendów i świąt. Ustaw długość dnia pracy oraz udział godzin rozliczanych klientom — otrzymasz stawkę z marżą i VAT.</p></div></section>
 <section class="wrap rate-main" aria-label="Kalkulator stawki godzinowej">
 <div class="rate-panel"><h2>Twoje założenia</h2><p class="intro">Wartości są przykładowe — zmień je pod swoją działalność. Obliczenia wykonują się w przeglądarce; dane nie są wysyłane do WycenaKit.</p>
 <form id="rate-form" class="rate-fields" novalidate>
 <div class="rate-field"><label for="overhead">Koszty działalności / miesiąc (zł)</label><input id="overhead" type="number" min="0" max="10000000" step="0.01" value="1500" inputmode="decimal"><small>Narzędzia, oprogramowanie, księgowość, dojazdy, stałe koszty.</small></div>
 <div class="rate-field"><label for="income">Docelowe wynagrodzenie / miesiąc (zł)</label><input id="income" type="number" min="0" max="10000000" step="0.01" value="6000" inputmode="decimal"><small>Kwota, którą chcesz uzyskać przed indywidualnym rozliczeniem podatków i składek.</small></div>
-<div class="rate-field"><label for="hours">Godziny sprzedawalne / miesiąc</label><input id="hours" type="number" min="1" max="744" step="1" value="100" inputmode="numeric"><small>Nie cały czas pracy — tylko godziny możliwe do rozliczenia klientom.</small></div>
+<div class="rate-field"><label for="work-month">Miesiąc rozliczeniowy</label><input id="work-month" type="month" required><small>Automatycznie liczymy poniedziałki–piątki bez polskich świąt ustawowych.</small></div>
+<div class="rate-field"><label for="day-hours">Godzin pracy dziennie</label><input id="day-hours" type="number" min="0.5" max="24" step="0.5" value="8" inputmode="decimal"><small>Przykład: 8 godzin dziennie.</small></div>
+<div class="rate-field"><label for="billable">Czas rozliczany klientom (%)</label><input id="billable" type="number" min="1" max="100" step="1" value="65" inputmode="decimal"><small>Reszta czasu to np. obsługa klientów, dojazdy i administracja.</small></div>
+<div class="rate-field"><label for="days-off">Dodatkowe dni wolne w miesiącu</label><input id="days-off" type="number" min="0" max="31" step="1" value="0" inputmode="numeric"><small>Urlop, nieobecności lub dzień wolny za święto w sobotę — jeśli dotyczy.</small></div>
+<div class="rate-field" style="grid-column:1/-1"><div class="rate-calendar" aria-live="polite"><strong id="calendar-summary">Obliczanie dni roboczych…</strong><span id="calendar-details"></span></div></div>
 <div class="rate-field"><label for="reserve">Rezerwa kosztowa (%)</label><input id="reserve" type="number" min="0" max="100" step="0.5" value="10" inputmode="decimal"><small>Dodatkowa poduszka na nieprzewidziane wydatki.</small></div>
 <div class="rate-field"><label for="margin">Dodatkowa marża operacyjna (%)</label><input id="margin" type="number" min="0" max="90" step="0.5" value="20" inputmode="decimal"><small>Marża ponad koszty, wynagrodzenie i rezerwę. Nie myl z narzutem.</small></div>
 <div class="rate-field"><label for="vat">VAT doliczany do ceny</label><select id="vat"><option value="0">Nie doliczam / 0%</option><option value="5">5%</option><option value="8">8%</option><option value="23" selected>23%</option></select><small>Wybierz właściwą stawkę dla swojej sytuacji. Kalkulator nie rozstrzyga obowiązków podatkowych.</small></div>
 </form><div class="rate-error" id="rate-error" role="alert" aria-live="polite"></div>
 </div>
 <aside class="rate-result" aria-live="polite"><div class="eyeline">SUGEROWANA STAWKA NETTO / H</div><div class="value" id="hourly">—</div><div class="unit">Za jedną godzinę rozliczaną klientowi, przed VAT</div><hr>
+<div class="line"><span>Dni pracy po odjęciu wolnego</span><strong id="working-days">—</strong></div>
+<div class="line"><span>Godziny pracy w miesiącu</span><strong id="available-hours">—</strong></div>
+<div class="line"><span>Godziny rozliczane klientom</span><strong id="billable-hours">—</strong></div>
 <div class="line"><span>Koszt i wynagrodzenie / miesiąc</span><strong id="monthly">—</strong></div>
 <div class="line"><span>Po dodaniu rezerwy / miesiąc</span><strong id="with-reserve">—</strong></div>
 <div class="line"><span>Stawka pokrywająca te kwoty / h</span><strong id="minimum">—</strong></div>
 <div class="line"><span>Kwota VAT / h</span><strong id="vat-value">—</strong></div>
 <div class="line"><span>Stawka z VAT / h</span><strong id="gross">—</strong></div>
-<p class="notice">Wynik jest modelem planowania ceny, a nie stawką rynkową ani kwotą „na rękę”. Nie uwzględnia automatycznie podatku dochodowego, składek, sezonowości ani kosztów specyficznych dla zlecenia.</p>
+<p class="notice">Dni robocze liczymy jako poniedziałki–piątki bez polskich świąt ustawowych (w tym Wigilii od 2025 r.). Dzień wolny za święto w sobotę, urlop i inne nieobecności wpisz w „Dodatkowe dni wolne”. Wynik jest modelem planowania ceny, nie stawką rynkową ani kwotą „na rękę”; nie rozlicza automatycznie podatków i składek.</p>
 <a class="btn primary" href="./index.html#generator">Przygotuj ofertę dla klienta ↗</a>
 <button id="copy-result" class="btn" style="width:100%;margin-top:9px;background:#ffffff1a;color:#fff;border:1px solid #ffffff55" type="button">Kopiuj wynik</button>
 <div id="copy-status" role="status" aria-live="polite" style="font-size:11px;margin-top:10px;color:#c8d5eb"></div>
 </aside>
 </section>
 <section class="wrap rate-info">
-<h2>Jak obliczamy stawkę godzinową?</h2><div class="rate-formula"><strong>1.</strong> Koszty miesięczne + planowane wynagrodzenie = baza.<br><strong>2.</strong> Baza × (1 + rezerwa / 100) = potrzebna kwota miesięczna.<br><strong>3.</strong> Potrzebna kwota / godziny sprzedawalne = stawka pokrywająca założenia.<br><strong>4.</strong> Stawka / (1 − marża / 100) = sugerowana cena netto za godzinę.<br><strong>5.</strong> Cena netto × (1 + VAT / 100) = cena z VAT.</div>
-<h2>Dlaczego 160 godzin pracy nie oznacza 160 godzin płatnych?</h2><p>Czas poświęcony na rozmowy z klientami, wystawianie dokumentów, dojazdy, marketing i poprawki często nie jest osobno rozliczany. Wpisanie zbyt dużej liczby godzin obniży obliczoną stawkę i może prowadzić do niedoszacowania usług.</p>
+<h2>Jak obliczamy stawkę godzinową?</h2><div class="rate-formula"><strong>1.</strong> Wybieramy miesiąc i liczymy dni od poniedziałku do piątku bez polskich świąt ustawowych; odejmujemy dodatkowe dni wolne.<br><strong>2.</strong> Dni pracy × godziny dziennie × udział czasu rozliczanego klientom = godziny sprzedawalne.<br><strong>3.</strong> Koszty miesięczne + planowane wynagrodzenie = baza; dodajemy rezerwę kosztową.<br><strong>4.</strong> Baza z rezerwą / godziny sprzedawalne = stawka pokrywająca założenia.<br><strong>5.</strong> Stawka / (1 − marża / 100) = sugerowana cena netto za godzinę.<br><strong>6.</strong> Cena netto × (1 + VAT / 100) = cena z VAT.</div>
+<h2>Dlaczego liczba godzin zmienia się co miesiąc?</h2><p>Miesiące mają różną liczbę dni od poniedziałku do piątku, a polskie święta mogą wypadać w dni robocze. Kalkulator automatycznie uwzględnia święta stałe i ruchome, w tym Poniedziałek Wielkanocny i Boże Ciało. Nie zakłada, że każdy dzień pracy to dzień płatny — uwzględnia też wskazany procent czasu rozliczanego klientom. W przypadku pracy etatowej nominalny wymiar czasu pracy może dodatkowo zależeć od dnia wolnego za święto przypadające w sobotę, dlatego takie dni można wpisać osobno.</p>
 <h2>Marża czy narzut?</h2><p>Przy koszcie 80 zł i cenie netto 100 zł marża wynosi 20% (20/100), a narzut 25% (20/80). Dlatego kalkulator wylicza marżę poprzez dzielenie przez <strong>(1 − marża)</strong>, a nie dodawanie procentu do kosztu. <a href="./kalkulator-marzy-i-narzutu.html" style="color:#345cf5;text-decoration:underline">Sprawdź darmowy kalkulator marży i narzutu ↗</a></p>
 <h2>Jak wykorzystać wynik?</h2><ul><li>Porównaj go z cenami osiągalnymi dla Twoich usług, ale nie traktuj konkurencji jako jedynego punktu odniesienia.</li><li>Przy wycenie konkretnego zlecenia dolicz materiały, podwykonawców i koszty specyficzne, jeśli nie są już uwzględnione w kosztach miesięcznych.</li><li>W darmowym generatorze WycenaKit utwórz pozycje kosztorysu, określ zakres i zapisz ofertę do PDF.</li></ul>
 <div class="rate-cta"><div><strong>Potrzebujesz gotowych opisów usług i wzorów ofert?</strong><p>Sprawdź przykłady z pakietu WycenaKit PRO — to osobne pliki do edycji, a nie abonament.</p></div><a class="btn pro-outline" href="./probka.html">Zobacz próbki PRO ↗</a></div>
@@ -84,23 +94,74 @@
 <footer class="footer"><div class="wrap footer-inner"><div><strong>wycena<span>kit</span></strong><p>Proste narzędzia dla małych firm.</p></div><div><a href="./index.html">Generator</a><a href="./kalkulator-marzy-i-narzutu.html">Marża i narzut</a><a href="./jak-wycenic-usluge.html">Poradnik</a><a href="./prywatnosc.html">Prywatność</a><a href="./informacje.html">Informacje prawne</a></div><small>© 2026 WycenaKit</small></div></footer>
 <script>
 (function(){
-const ids=['overhead','income','hours','reserve','margin','vat'];
+const ids=['overhead','income','day-hours','billable','days-off','reserve','margin','vat'];
 const nodes=Object.fromEntries(ids.map(id=>[id,document.getElementById(id)]));
-const output=Object.fromEntries(['hourly','monthly','with-reserve','minimum','vat-value','gross','rate-error','copy-status'].map(id=>[id,document.getElementById(id)]));
+const monthInput=document.getElementById('work-month');
+const output=Object.fromEntries(['hourly','monthly','with-reserve','minimum','vat-value','gross','working-days','available-hours','billable-hours','rate-error','copy-status','calendar-summary','calendar-details'].map(id=>[id,document.getElementById(id)]));
 const money=new Intl.NumberFormat('pl-PL',{style:'currency',currency:'PLN',minimumFractionDigits:2,maximumFractionDigits:2});
+const num=new Intl.NumberFormat('pl-PL',{maximumFractionDigits:2});
+const months=['stycznia','lutego','marca','kwietnia','maja','czerwca','lipca','sierpnia','września','października','listopada','grudnia'];
+const now=new Date();
+monthInput.value=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
 let summary='';
+function easterSunday(year){
+  const a=year%19,b=Math.floor(year/100),c=year%100,d=Math.floor(b/4),e=b%4;
+  const f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30;
+  const i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k+7)%7,m=Math.floor((a+11*h+22*l)/451);
+  const month=Math.floor((h+l-7*m+114)/31),day=((h+l-7*m+114)%31)+1;
+  return Date.UTC(year,month-1,day);
+}
+function holidaySet(year){
+  const dates=[[1,1],[1,6],[5,1],[5,3],[8,15],[11,1],[11,11],[12,25],[12,26]];
+  if(year>=2025)dates.push([12,24]);
+  const easter=easterSunday(year);
+  const datesUTC=dates.map(([m,d])=>Date.UTC(year,m-1,d));
+  datesUTC.push(easter+86400000); // Poniedziałek Wielkanocny
+  datesUTC.push(easter+60*86400000); // Boże Ciało
+  return new Set(datesUTC);
+}
+function workingDays(year,month){
+  const holidays=holidaySet(year);
+  const last=new Date(Date.UTC(year,month,0)).getUTCDate();
+  let days=0,holidayWeekdays=0;
+  for(let day=1;day<=last;day++){
+    const stamp=Date.UTC(year,month-1,day);
+    const weekday=new Date(stamp).getUTCDay();
+    if(weekday===0||weekday===6)continue;
+    if(holidays.has(stamp))holidayWeekdays++;
+    else days++;
+  }
+  return {days,holidayWeekdays};
+}
+function clearResults(){
+ for(const id of ['hourly','monthly','with-reserve','minimum','vat-value','gross','working-days','available-hours','billable-hours'])output[id].textContent='—';
+ summary='';
+}
 function calculate(){
-const v=Object.fromEntries(ids.map(id=>[id,Number(nodes[id].value)]));
-let error='';
-if(ids.some(id=>nodes[id].value.trim()===''||!Number.isFinite(v[id])))error='Uzupełnij wszystkie pola poprawnymi liczbami.';
-else if(v.overhead<0||v.income<0||v.hours<=0||v.hours>744||v.reserve<0||v.reserve>100||v.margin<0||v.margin>90)error='Sprawdź dane: koszty nie mogą być ujemne, godziny 1–744, rezerwa 0–100%, marża 0–90%.';
-else if(v.overhead>1e7||v.income>1e7)error='Wartości kosztów i wynagrodzenia mogą wynosić maksymalnie 10 mln zł.';
-output['rate-error'].textContent=error;
-if(error){for(const id of ['hourly','monthly','with-reserve','minimum','vat-value','gross'])output[id].textContent='—';summary='';return}
-const monthly=v.overhead+v.income,withReserve=monthly*(1+v.reserve/100),minimum=withReserve/v.hours,net=minimum/(1-v.margin/100),tax=net*v.vat/100,gross=net+tax;
-const values={hourly:net,monthly, 'with-reserve':withReserve,minimum,'vat-value':tax,gross};
-for(const [id,val] of Object.entries(values))output[id].textContent=money.format(val);
-summary='WycenaKit — stawka godzinowa\nKoszty i wynagrodzenie: '+money.format(monthly)+' / mies.\nRezerwa: '+v.reserve+'%\nGodziny sprzedawalne: '+v.hours+' / mies.\nMarża operacyjna: '+v.margin+'%\nStawka netto: '+money.format(net)+' / h\nVAT: '+v.vat+'%\nStawka z VAT: '+money.format(gross)+' / h\nWynik orientacyjny.';
+ const v=Object.fromEntries(ids.map(id=>[id,Number(nodes[id].value)]));
+ const match=/^(\d{4})-(\d{2})$/.exec(monthInput.value);
+ let error='';
+ if(!match||Number(match[1])<1900||Number(match[1])>2100||Number(match[2])<1||Number(match[2])>12)error='Wybierz poprawny miesiąc z lat 1900–2100.';
+ else if(ids.some(id=>nodes[id].value.trim()===''||!Number.isFinite(v[id])))error='Uzupełnij wszystkie pola poprawnymi liczbami.';
+ else if(v.overhead<0||v.income<0||v['day-hours']<0.5||v['day-hours']>24||v.billable<=0||v.billable>100||v['days-off']<0||!Number.isInteger(v['days-off'])||v['days-off']>31||v.reserve<0||v.reserve>100||v.margin<0||v.margin>90)error='Sprawdź dane: godziny dziennie 0,5–24, udział płatnego czasu 1–100%, dni wolne 0–31, rezerwa 0–100%, marża 0–90%.';
+ else if(v.overhead>1e7||v.income>1e7)error='Koszty i wynagrodzenie mogą wynosić maksymalnie 10 mln zł.';
+ const year=match?Number(match[1]):0,month=match?Number(match[2]):0;
+ const calendar=!error?workingDays(year,month):null;
+ if(!error&&v['days-off']>=calendar.days)error='Dodatkowych dni wolnych musi być mniej niż dni roboczych w wybranym miesiącu.';
+ output['rate-error'].textContent=error;
+ if(error){clearResults();output['calendar-summary'].textContent='Popraw dane, aby policzyć kalendarz';output['calendar-details'].textContent='';return}
+ const days=calendar.days-v['days-off'];
+ const available=days*v['day-hours'];
+ const hours=available*v.billable/100;
+ const monthly=v.overhead+v.income,withReserve=monthly*(1+v.reserve/100),minimum=withReserve/hours,net=minimum/(1-v.margin/100),tax=net*v.vat/100,gross=net+tax;
+ const values={hourly:net,monthly,'with-reserve':withReserve,minimum,'vat-value':tax,gross};
+ for(const [id,val] of Object.entries(values))output[id].textContent=money.format(val);
+ output['working-days'].textContent=num.format(days);
+ output['available-hours'].textContent=num.format(available)+' h';
+ output['billable-hours'].textContent=num.format(hours)+' h';
+ output['calendar-summary'].textContent=num.format(calendar.days)+' dni roboczych — '+months[month-1]+' '+year;
+ output['calendar-details'].textContent='Święta w dni powszednie: '+calendar.holidayWeekdays+' · Dodatkowe wolne: '+v['days-off']+' · Dostępne: '+num.format(available)+' h · Rozliczane klientom: '+num.format(hours)+' h';
+ summary='WycenaKit — stawka godzinowa\nMiesiąc: '+monthInput.value+'\nDni robocze: '+calendar.days+'\nDodatkowe wolne: '+v['days-off']+'\nGodziny pracy: '+num.format(available)+' / mies.\nGodziny sprzedawalne: '+num.format(hours)+' / mies.\nKoszty i wynagrodzenie: '+money.format(monthly)+' / mies.\nRezerwa: '+v.reserve+'%\nMarża operacyjna: '+v.margin+'%\nStawka netto: '+money.format(net)+' / h\nVAT: '+v.vat+'%\nStawka z VAT: '+money.format(gross)+' / h\nWynik orientacyjny.';
 }
 document.getElementById('rate-form').addEventListener('input',calculate);
 document.getElementById('rate-form').addEventListener('change',calculate);
