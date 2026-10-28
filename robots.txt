@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wycenakit.onrender.com/sitemap.xml
+Sitemap: https://wycenakit.onrender.com/sitemap.txt
