@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#345cf5">
+  <meta name="description" content="Darmowy generator wycen i ofert PDF. Oblicz VAT, rabaty, dodaj pozycje kosztorysu i wydrukuj ofertę. Bez rejestracji.">
+  <title>WycenaKit — darmowy generator wycen i ofert PDF</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"WycenaKit","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"pl","offers":{"@type":"Offer","price":"0","priceCurrency":"PLN"}}</script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="nav wrap">
+    <a class="brand" href="#start" aria-label="WycenaKit — strona główna"><span class="brand-mark">W</span><span>wycena<b>kit</b><small>OFERTY BEZ KOMPLIKACJI</small></span></a>
+    <nav aria-label="Nawigacja"><a href="#generator">Generator</a><a href="#korzysci">Funkcje</a><a href="#faq">FAQ</a></nav>
+    <a class="nav-cta" href="#generator">Utwórz wycenę ↗</a>
+  </header>
+  <main id="start">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div><span class="eyebrow">● Darmowe narzędzie dla małych firm</span><h1>Wycena, która wygląda <em>profesjonalnie.</em> W kilka minut.</h1><p>Twórz przejrzyste oferty dla klientów. Dodawaj usługi, licz koszty, uwzględniaj VAT i zapisuj gotowy dokument jako PDF. Bez konta i abonamentu.</p><a class="btn primary" href="#generator">Stwórz wycenę <span>↗</span></a><div class="trust"><span>✓ Automatyczne obliczenia</span><span>✓ Zapis lokalny</span><span>✓ Eksport PDF</span></div></div>
+        <div class="hero-card" aria-hidden="true"><div class="mock-top"><strong class="mock-logo">W</strong><span>OFERTA / 001</span><span class="mock-tag">GOTOWA</span></div><div class="mock-row"><span>Projekt i realizacja</span><b>2 400 zł</b></div><div class="mock-row"><span>Dodatkowe usługi</span><b>650 zł</b></div><div class="mock-row"><span>VAT 23%</span><b>701,50 zł</b></div><div class="mock-total"><span>Razem brutto</span><strong>3 751,50 zł</strong></div><div class="mock-foot">● Wszystko policzone automatycznie</div></div>
+      </div>
+    </section>
+    <div class="strip"><div class="wrap">Jedna wycena. Zero arkuszy. Zero chaosu.</div></div>
+    <section class="workspace" id="generator"><div class="wrap">
+      <div class="section-head"><div><span class="overline">TWOJE NARZĘDZIE</span><h2>Generator wyceny</h2><p>Uzupełnij formularz. Dokument aktualizuje się automatycznie.</p></div><span class="privacy-pill">◉ Dane pozostają w Twojej przeglądarce</span></div>
+      <div class="toolbar"><div class="presets"><span>Przykładowe branże:</span><button type="button" data-preset="remont">Remonty</button><button type="button" data-preset="it">IT / WWW</button><button type="button" data-preset="marketing">Marketing</button><button type="button" data-preset="cleaning">Sprzątanie</button></div><div class="toolbar-actions"><button type="button" id="save-project">↓ Zapisz projekt</button><button type="button" id="load-project">↑ Wczytaj</button><input type="file" id="file-input" accept=".json,application/json" hidden></div></div>
+      <div class="columns">
+        <section class="form-panel" aria-label="Edycja wyceny">
+          <div class="panel-title"><div><span class="step">01</span><strong>Dane dokumentu</strong></div><span>Uzupełnij pola</span></div>
+          <div class="fields">
+            <label>Nazwa firmy / wykonawcy<input data-field="seller" placeholder="Np. Jan Kowalski Usługi" maxlength="160"></label>
+            <label>Numer oferty<input data-field="number" placeholder="OF/2026/001" maxlength="80"></label>
+            <label class="full">Dane wykonawcy<textarea data-field="sellerInfo" rows="2" placeholder="Adres, NIP (jeśli dotyczy), telefon, e-mail"></textarea></label>
+            <label>Nazwa klienta<input data-field="client" placeholder="Np. Anna Nowak" maxlength="160"></label>
+            <label>Nazwa projektu<input data-field="project" placeholder="Np. Remont salonu" maxlength="180"></label>
+            <label class="full">Dane klienta<textarea data-field="clientInfo" rows="2" placeholder="Opcjonalnie: adres, dane kontaktowe"></textarea></label>
+          </div>
+          <div class="panel-title divider-title"><div><span class="step">02</span><strong>Pozycje wyceny</strong></div><span id="item-count">0 pozycji</span></div>
+          <p class="example-note">Ceny w przykładach są demonstracyjne i nie stanowią aktualnego cennika rynkowego.</p>
+          <div id="items" class="items"></div>
+          <button type="button" class="add" id="add-item">＋ Dodaj kolejną pozycję</button>
+          <div class="fields extras">
+            <label>Stawka VAT<select data-field="vat"><option value="23">23%</option><option value="8">8%</option><option value="5">5%</option><option value="0">0%</option><option value="zw">Zwolnienie (zw.)</option></select></label>
+            <label>Rabat (%)<input type="number" min="0" max="100" step="0.5" data-field="discount"></label>
+            <label class="full">Uwagi / warunki<textarea data-field="notes" rows="3" placeholder="Termin realizacji, zakres, warunki płatności..."></textarea></label>
+          </div>
+          <div class="form-bottom"><button type="button" id="reset">Wyczyść formularz</button><span>Automatyczny zapis ✓</span></div>
+        </section>
+        <div class="preview-col">
+          <div class="preview-heading"><div><strong>Podgląd dokumentu</strong><small>Format A4 · Gotowy do druku</small></div><button class="btn primary" type="button" id="print">↓ Pobierz PDF</button></div>
+          <article class="paper" id="paper" aria-label="Podgląd oferty">
+            <div class="paper-top"><div><div class="paper-brand">WYCENA <span>/ OFERTA</span></div><small id="p-number"></small></div><div class="paper-date"><small>DATA WYSTAWIENIA</small><strong id="p-date"></strong></div></div>
+            <div class="parties"><div><span class="paper-label">WYKONAWCA</span><strong id="p-seller"></strong><p id="p-seller-info"></p></div><div><span class="paper-label">DLA KLIENTA</span><strong id="p-client"></strong><p id="p-client-info"></p></div></div>
+            <div class="project"><span class="paper-label">PRZEDMIOT WYCENY</span><h3 id="p-project"></h3></div>
+            <table class="quote-table"><thead><tr><th>USŁUGA / POZYCJA</th><th>ILOŚĆ</th><th>CENA NETTO</th><th>WARTOŚĆ</th></tr></thead><tbody id="p-rows"></tbody></table>
+            <div class="summary"><span class="paper-label">PODSUMOWANIE</span><div><div><span>Suma netto</span><strong id="p-subtotal"></strong></div><div id="discount-line"><span>Rabat</span><strong id="p-discount"></strong></div><div><span id="p-vat-label">VAT</span><strong id="p-vat"></strong></div><div class="grand"><span>DO ZAPŁATY</span><strong id="p-total"></strong></div></div></div>
+            <div class="paper-notes"><span class="paper-label">DODATKOWE INFORMACJE</span><p id="p-notes"></p></div>
+            <div class="paper-foot">Dokument wygenerowany w WycenaKit. Zweryfikuj dane, warunki i stawki podatkowe przed przekazaniem klientowi.</div>
+          </article>
+          <p class="print-help">Po kliknięciu „Pobierz PDF” wybierz „Zapisz jako PDF” w oknie drukowania.</p>
+        </div>
+      </div>
+    </div></section>
+    <section id="korzysci" class="benefits wrap"><span class="overline">DLACZEGO WYCENAKIT</span><h2>Więcej czasu na pracę.<br>Mniej na papierologię.</h2><div class="features"><div><span class="feature-icon">◈</span><h3>Przejrzyste dokumenty</h3><p>Profesjonalny układ oferty, gotowy do wysłania klientowi w formacie PDF.</p></div><div><span class="feature-icon">∑</span><h3>Obliczenia bez pomyłek</h3><p>Automatyczne sumy, rabaty i wybrana stawka VAT. Kontrola nad każdą pozycją.</p></div><div><span class="feature-icon">▣</span><h3>Prywatność danych</h3><p>Projekty zapisują się lokalnie. Możesz pobrać plik i wrócić do niego później.</p></div></div></section>
+    <section id="pro" class="pro wrap" hidden><div><span class="overline">MATERIAŁY DODATKOWE</span><h2>Pakiet WycenaKit PRO</h2><p>Gotowe opisy pozycji kosztorysowych oraz szablony wiadomości do klientów. Kupujesz materiały cyfrowe, a generator pozostaje darmowy.</p><div class="pro-tags">✓ Opisy usług &nbsp; ✓ Szablony wiadomości &nbsp; ✓ Pliki do edycji</div></div><div class="pro-action"><strong id="pro-price">29 zł</strong><a id="pro-link" class="btn primary" href="#" target="_blank" rel="noopener noreferrer">Kup pakiet PRO ↗</a><small>Płatność w zewnętrznym sklepie</small></div></section>
+    <section class="faq wrap" id="faq"><span class="overline">PYTANIA I ODPOWIEDZI</span><h2>Warto wiedzieć</h2><details><summary>Czy generator jest bezpłatny?</summary><p>Tak. Możesz tworzyć oferty, liczyć wartości, zapisywać projekty i drukować dokumenty do PDF bez opłat.</p></details><details><summary>Gdzie przechowywane są moje dane?</summary><p>Wyceny zapisują się w pamięci lokalnej przeglądarki. Nie przesyłamy danych formularza na serwer. Możesz wyeksportować projekt do pliku JSON.</p></details><details><summary>Czy wycena jest fakturą?</summary><p>Nie. To oferta lub wycena, a nie faktura. Przed wysłaniem sprawdź poprawność danych, warunków i stawek podatkowych.</p></details><details><summary>Jak pobrać PDF?</summary><p>Użyj przycisku „Pobierz PDF”, a następnie wybierz zapis do PDF w oknie drukowania.</p></details></section>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>wycena<span>kit</span></strong><p>Proste narzędzia dla małych firm.</p></div><div><a href="./prywatnosc.html">Prywatność</a><a href="./informacje.html">Informacje prawne</a></div><small>© <span id="year"></span> WycenaKit</small></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
