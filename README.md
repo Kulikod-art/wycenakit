@@ -13,6 +13,7 @@ Darmowy generator wycen i ofert PDF dla małych firm: https://wycenakit.onrender
 - `index.html` — generator, opis produktu PRO, FAQ
 - `probka.html` — próbki materiałów z pakietu PRO
 - `kalkulator-stawki-godzinowej.html` — darmowy kalkulator opłacalnej stawki godzinowej, marży i VAT
+- `kalkulator-marzy-i-narzutu.html` — darmowy kalkulator marży, narzutu, rabatu i VAT
 - `jak-wycenic-usluge.html` — bezpłatny poradnik SEO
 - `prywatnosc.html` i `informacje.html` — informacje o prywatności i sprzedaży
 - `sitemap.xml` i `robots.txt` — odkrywanie stron przez wyszukiwarki
