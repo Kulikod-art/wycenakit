@@ -30,3 +30,5 @@
 .pro-bottom-cta p{color:#64738a;font-size:12px;margin:0}
 @media(max-width:950px){.pro-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pro-example{grid-template-columns:1fr}}
 @media(max-width:650px){.pro-details-head{flex-direction:column;align-items:flex-start}.pro-grid{grid-template-columns:1fr}.pro-example{padding:18px;gap:20px}.pro-example-card{padding:18px}.pro-bottom-cta{flex-direction:column;align-items:stretch}.pro-bottom-cta .btn{width:100%}.pro-action{width:100%}}
+
+.guide-promo{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:0;margin-bottom:55px;padding-top:27px;padding-bottom:27px;background:#f2f5ff;border:1px solid #e2e9fb;border-radius:15px}.guide-promo h2{font-size:clamp(20px,2.6vw,27px);line-height:1.3;margin:8px 0}.guide-promo p{color:#687990;font-size:12px;line-height:1.75;margin:0;max-width:720px}.guide-promo .btn{white-space:nowrap}@media(max-width:650px){.guide-promo{flex-direction:column;align-items:stretch}.guide-promo .btn{width:100%}}
